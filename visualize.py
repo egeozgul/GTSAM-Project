@@ -46,20 +46,10 @@ def visualize_graph(vertices, edges, filename, max_vertices=100):
     # Set z-coordinates to 0
     coords[:, 2] = 0
     
-    # Plot vertices
+    # Plot vertices (very small)
     ax.scatter(coords[:, 0], coords[:, 1], coords[:, 2], 
-               c='red', marker='o', s=50, label='Vertices', zorder=5)
+               c='red', marker='o', s=5, label='Vertices', zorder=5)
     
-    # Plot edges (only between vertices in the first 100)
-    vertex_ids_set = set(vertex_ids)
-    for start, end in edges:
-        if start in vertex_ids_set and end in vertex_ids_set:
-            p1 = vertices[start].copy()
-            p2 = vertices[end].copy()
-            p1[2] = 0
-            p2[2] = 0
-            ax.plot([p1[0], p2[0]], [p1[1], p2[1]], [p1[2], p2[2]], 
-                   'b-', alpha=0.6, linewidth=1)
     
     # Labels and formatting
     ax.set_xlabel('X')
@@ -77,6 +67,6 @@ if __name__ == "__main__":
     
     if vertices and edges:
         print(f"Loaded {len(vertices)} vertices and {len(edges)} edges")
-        visualize_graph(vertices, edges, filename, max_vertices=1000)
+        visualize_graph(vertices, edges, filename, max_vertices=10000)
     else:
         print("Failed to load graph data.")
