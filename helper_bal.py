@@ -212,8 +212,7 @@ def run_bundle_adjustment(graph, initial, max_iterations=50, verbose=True,
     params.setlambdaInitial(lambda_initial)
     params.setlambdaUpperBound(lambda_upper_bound)   
         
-    # Use GTSAM defaults for lambda - they're well tested
-    # Default: lambdaInitial=1e-5, lambdaFactor=10, bounds are reasonable
+
     
     # Set verbosity level
     if verbose:
